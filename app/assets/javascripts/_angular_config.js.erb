@@ -7,5 +7,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     .state('home', {
       url: '/',
       templateUrl: "<%= asset_path('pages/index.html') %>"
-    });
+    })
+    .state('logged', {
+      url: '/logged',
+      templateUrl: "<%= asset_path('pages/logged.html') %>"
+    })
+
 }]);
+
+

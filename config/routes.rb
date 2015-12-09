@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'wallets/index'
+  # get 'wallets/index'
 
-  get 'wallets/show'
+  # get 'wallets/show'
 
-  root :to => 'pages#index'
+  root 'pages#index'
 
 end
