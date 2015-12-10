@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'omniauth-facebook'
+gem 'omniauth-google'
+gem 'omniauth-github'
+gem 'omniauth-weibo-oauth2'
 gem 'bower'
 gem 'devise_token_auth'
 gem 'omniauth'

@@ -1,0 +1,33 @@
+app.controller('navbarCtrl', ['$scope', '$auth', '$location',
+  function($scope, $auth, $location){
+
+    // CHECK IF USER IS LOGGED IN
+    $scope.authResponse  = $auth.validateUser();
+    $scope.authStatus = $scope.authResponse.$$state.status;
+    console.log($scope.authStatus);
+
+    // SHOW/HIDE BUTTONS
+    if ($scope.authStatus == 1) {
+      $scope.loggedIn = true;
+    } else {
+      $scope.loggedIn = false;
+    };
+
+    $scope.logout = function() {
+      $auth.signOut();
+      $scope.loggedIn = false;
+    }
+}])
+
+
+      // $scope.logout = function () {
+      //   $auth.signOut().then(function(resp) {
+      //     UserFactory.identity = null;
+      //     $scope.loggedIn = null;
+      //   }).catch(function(resp) {
+      //     console.log(resp);
+      //   });
+      //   $rootScope.$on('auth:logout-success', function(ev) {
+      //     alert('goodbye');
+      //   });
+      // };

@@ -3,3 +3,6 @@
 /log/*
 !/log/.keep
 .DS_Store
+
+/bower_components
+*.bowerrc

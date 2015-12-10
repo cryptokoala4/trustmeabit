@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  # get 'wallets/index'
-
-  # get 'wallets/show'
+  mount_devise_token_auth_for 'User', at: 'auth'
 
   root 'pages#index'
 

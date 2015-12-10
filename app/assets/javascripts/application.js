@@ -17,3 +17,6 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
 //= require_self
+
+//= require ng-token-auth/dist/ng-token-auth
+//= require angular-cookie/angular-cookie

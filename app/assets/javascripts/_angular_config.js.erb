@@ -1,18 +1,37 @@
-var app = angular.module('trustmeabit', ['ui.router'])
+var app = angular.module('trustmeabit', ['ui.router', 'ng-token-auth'])
 
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($stateProvider, $urlRouterProvider, $authProvider){
 
   $stateProvider
     .state('home', {
       url: '/',
       templateUrl: "<%= asset_path('pages/index.html') %>"
+      // controller: 'homeCtrl'
     })
-    .state('logged', {
-      url: '/logged',
-      templateUrl: "<%= asset_path('pages/logged.html') %>"
-    })
+   .state('signup', {
+     url: '/signup',
+     templateUrl: "<%= asset_path('auth/signup.html') %>",
+     controller: 'SignUpCtrl'
+   })
+   .state('login', {
+     url: '/login',
+     templateUrl: "<%= asset_path('auth/login.html') %>",
+     controller: 'LogInCtrl'
+   })
+   .state('dashboard', {
+     url: '/dashboard',
+     templateUrl: "<%= asset_path('pages/dashboard.html') %>",
+     controller: 'DashboardCtrl'
+   })
 
+  $urlRouterProvider.otherwise('/');
+
+  $authProvider.configure({
+    // By default, you only need to configure apiUrl
+    // Note that if you put a '/' at the end of the link, there will be errors when calling the api
+    apiUrl: 'http://localhost:3000'
+  });
 }]);
+
 
 
