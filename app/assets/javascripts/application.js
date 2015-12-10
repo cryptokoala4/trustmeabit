@@ -20,3 +20,4 @@
 
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-cookie/angular-cookie
+//= require angular-bootstrap/ui-bootstrap.min

@@ -5,6 +5,7 @@
     "angular": "~1.4.8",
     "bootstrap": "~3.3.6",
     "angular-ui-router": "~0.2.15",
-    "ng-token-auth": "~0.0.28"
+    "ng-token-auth": "~0.0.28",
+    "angular-bootstrap": "~0.14.3"
   }
 }

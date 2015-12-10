@@ -1,4 +1,4 @@
-var app = angular.module('trustmeabit', ['ui.router', 'ng-token-auth'])
+var app = angular.module('trustmeabit', ['ui.router', 'ng-token-auth', 'ui.bootstrap'])
 
 app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($stateProvider, $urlRouterProvider, $authProvider){
 
@@ -32,6 +32,5 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
     apiUrl: 'http://localhost:3000'
   });
 }]);
-
 
 
