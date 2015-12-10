@@ -1,4 +1,20 @@
-<nav  class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav ng-controller="ModalDemoCtrl" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Im a modal!</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="item in items">
+                    <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</script>
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,7 +34,7 @@
 
         <li><a ng-hide="loggedIn" href="/#/signup">Register</a></li>
 
-        <li><a ng-hide="loggedIn" href="/#/login">Login</a></li>
+        <li><a ng-hide="loggedIn" ng-click="open()">Login</a></li>
 
         <li><a href='#' ng-show="loggedIn" ng-click="logout()">Logout</a></li>
       </ul>

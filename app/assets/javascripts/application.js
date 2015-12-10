@@ -21,3 +21,5 @@
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-cookie/angular-cookie
 //= require angular-bootstrap/ui-bootstrap.min
+//= require angular-bootstrap/ui-bootstrap-tpls.min
+//= require angular-animate/angular-animate.min
