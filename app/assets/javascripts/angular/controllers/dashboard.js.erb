@@ -1,20 +1,5 @@
 app.controller('DashboardCtrl', ['$scope', '$auth', '$location',
   function($scope, $auth, $location){
 
-    // CHECK IF USER IS LOGGED IN
-    $scope.authResponse  = $auth.validateUser();
-    $scope.authStatus = $scope.authResponse.$$state.status;
-    console.log($scope.authStatus);
 
-    // SHOW/HIDE BUTTONS
-    if ($scope.authStatus == 1) {
-      $scope.loggedIn = true;
-    } else {
-      $scope.loggedIn = false;
-    };
-
-    $scope.logout = function() {
-      $auth.signOut();
-      $scope.loggedIn = false;
-    }
 }])

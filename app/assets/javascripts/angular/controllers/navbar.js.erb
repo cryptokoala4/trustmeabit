@@ -1,10 +1,13 @@
-app.controller('navbarCtrl', ['$scope', '$auth', '$location',
-  function($scope, $auth, $location){
+app.controller('navbarCtrl', ['$scope', '$auth', '$location', '$rootScope',
+  function($scope, $auth, $location, $rootScope){
 
     // CHECK IF USER IS LOGGED IN
     $scope.authResponse  = $auth.validateUser();
     $scope.authStatus = $scope.authResponse.$$state.status;
-    console.log($scope.authStatus);
+
+    $rootScope.$on('auth:login-success', function(ev, user) {
+      $scope.loggedIn = true
+    });
 
     // SHOW/HIDE BUTTONS
     if ($scope.authStatus == 1) {

@@ -14,6 +14,7 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$u
        // handle success response
        console.log(resp);
        // redirect back to root when registration succesfull
+       $scope.cancel()
        $location.path('/');
      }).
      catch(function(resp) {
@@ -43,10 +44,9 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$u
   // };
 
   $scope.registrationView = true;
-  $scope.toggleView = function() {
-    $scope.registrationView = !$scope.registrationView;
-
-  };
+  // $scope.toggleView = function() {
+  //   $scope.registrationView = !$scope.registrationView;
+  // };
 
 
 }]);

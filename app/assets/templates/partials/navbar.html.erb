@@ -12,9 +12,11 @@
       <ul class="nav navbar-nav navbar-right">
 
 
-        <li><a href="#">How it works</a></li>
+        <li><a href="#" ng-hide="loggedIn">How it works</a></li>
 
-        <li><a href="#/dashboard" ng-show="loggedIn">Welcome {{ user.email }}</a></li>
+        <li><img class="bitcoin-currency-icon" src="<%= asset_path('images/BitcoinIcon.jpg') %>"<a href="#/dashboard" ng-show="loggedIn">0.00</a></li>
+
+        <li><a href="#/dashboard" ng-show="loggedIn">Hi {{ user.email }}</a></li>
 
         <li><a ng-controller="ModalDemoCtrl" ng-hide="loggedIn" ng-click="open()">Login</a></li>
 
