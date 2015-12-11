@@ -55,3 +55,12 @@ form > li {
   width: 150px;
   float: right;
 }
+
+.signup-button{
+  width: 150px;
+  float: right;
+}
+
+.modal-dialog{
+  width: 470px;
+}

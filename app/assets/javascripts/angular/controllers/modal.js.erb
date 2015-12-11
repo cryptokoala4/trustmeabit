@@ -1,6 +1,5 @@
-app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function($scope, $uibModal, $log){
-
-  $scope.items = ['item1', 'item2', 'item3'];
+app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log',
+'$auth', '$location', function($scope, $uibModal, $log, $auth, $location){
 
   $scope.animationsEnabled = true;
 
@@ -8,7 +7,7 @@ app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function($scope,
 
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
-      templateUrl: 'myModalContent.html',
+      templateUrl: "<%= asset_path('partials/myModalContent.html') %>",
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
