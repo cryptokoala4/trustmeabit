@@ -1,23 +1,12 @@
-var app = angular.module('trustmeabit', ['ui.router', 'ng-token-auth', 'ui.bootstrap', 'ngAnimate'])
+var app = angular.module('trustmeabit', ['ui.router', 'ui.router.stateHelper', 'ng-token-auth', 'ui.bootstrap', 'ngAnimate'])
 
-app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($stateProvider, $urlRouterProvider, $authProvider){
+app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($stateProvider,  $urlRouterProvider, $authProvider){
 
   $stateProvider
     .state('home', {
       url: '/',
       templateUrl: "<%= asset_path('pages/index.html') %>"
-      // controller: 'homeCtrl'
     })
-   // .state('signup', {
-   //   url: '/signup',
-   //   templateUrl: "<%= asset_path('auth/signup.html') %>",
-   //   controller: 'SignUpCtrl'
-   // })
-   // .state('login', {
-   //   url: '/login',
-   //   templateUrl: "<%= asset_path('auth/login.html') %>",
-   //   controller: 'LogInCtrl'
-   // })
    .state('dashboard', {
      url: '/dashboard',
      templateUrl: "<%= asset_path('pages/dashboard.html') %>",
@@ -33,6 +22,20 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
      templateUrl: "<%= asset_path('pages/profile.html') %>",
      controller: 'ProfileCtrl'
    })
+    .state('deposit', {
+      url: '/deposit',
+      templateUrl: "<%= asset_path('pages/deposit.html') %>",
+    })
+    .state('withdraw', {
+      url: '/withdraw',
+      templateUrl: "<%= asset_path('pages/withdraw.html') %>",
+      controller: 'WalletCtrl'
+    })
+    .state('history', {
+      url: '/history',
+      templateUrl: "<%= asset_path('pages/history.html') %>",
+      controller: 'WalletCtrl'
+    })
 
   $urlRouterProvider.otherwise('/');
 

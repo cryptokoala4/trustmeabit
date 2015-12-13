@@ -27,3 +27,4 @@
 //= require raphael/raphael-min
 //= require morrisjs/morris.min
 //= require startbootstrap-sb-admin-2/dist/js/sb-admin-2
+//= require angular-ui-router.stateHelper/statehelper.min
