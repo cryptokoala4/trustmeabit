@@ -13,13 +13,17 @@
  *= require bootstrap/dist/css/bootstrap.min
  *= require components-font-awesome/css/font-awesome.min
  *= require bootstrap-social/bootstrap-social
+ *= require metisMenu/dist/metisMenu.min
+ *= require startbootstrap-sb-admin-2/dist/css/timeline
+ *= require startbootstrap-sb-admin-2/dist/css/sb-admin-2
+ *= require morrisjs/morris
  *= require_tree .
  *= require_self
  */
 
 
 body{
-  padding-top: 50px;
+  padding-top: 60px;
   padding-bottom: 50px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
@@ -63,4 +67,24 @@ form > li {
 
 .modal-dialog{
   width: 470px;
+}
+
+.bitcoin-currency-icon{
+  width: 18px;
+}
+
+.empty-profile{
+  width: 250px;
+}
+
+.center-text{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.padding-left{
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
 }

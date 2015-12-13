@@ -8,20 +8,30 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
       templateUrl: "<%= asset_path('pages/index.html') %>"
       // controller: 'homeCtrl'
     })
-   .state('signup', {
-     url: '/signup',
-     templateUrl: "<%= asset_path('auth/signup.html') %>",
-     controller: 'SignUpCtrl'
-   })
-   .state('login', {
-     url: '/login',
-     templateUrl: "<%= asset_path('auth/login.html') %>",
-     controller: 'LogInCtrl'
-   })
+   // .state('signup', {
+   //   url: '/signup',
+   //   templateUrl: "<%= asset_path('auth/signup.html') %>",
+   //   controller: 'SignUpCtrl'
+   // })
+   // .state('login', {
+   //   url: '/login',
+   //   templateUrl: "<%= asset_path('auth/login.html') %>",
+   //   controller: 'LogInCtrl'
+   // })
    .state('dashboard', {
      url: '/dashboard',
      templateUrl: "<%= asset_path('pages/dashboard.html') %>",
      controller: 'DashboardCtrl'
+   })
+   .state('wallet', {
+     url: '/wallet',
+     templateUrl: "<%= asset_path('pages/wallet.html') %>",
+     controller: 'WalletCtrl'
+   })
+   .state('profile', {
+     url: '/profile',
+     templateUrl: "<%= asset_path('pages/profile.html') %>",
+     controller: 'ProfileCtrl'
    })
 
   $urlRouterProvider.otherwise('/');
