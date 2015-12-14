@@ -2,20 +2,20 @@
 </main-nav-bar>
 
 <div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header center-text">BTC Balance: 0.01 (dummy)</h1>
-    </div>
+  <div class="col-lg-12">
+    <h1 class="page-header center-text">BTC Balance: 0.01 (dummy)</h1>
+  </div>
 </div>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-      <nav class='tabs'>
-        <a ui-sref-active="active" ui-sref="deposit">Deposit</a>
-        <a ui-sref-active="active" ui-sref="withdraw">Withdraw</a>
-        <a ui-sref-active="active" ui-sref="history">History</a>
+  <div class="panel panel-default">
+    <div class="panel-heading wallet-tab-height">
+      <nav class="tabs center-tabs">
+        <a class="col-sm-4" ui-sref-active="active" ui-sref="deposit">Deposit</a>
+        <a class="col-sm-4" ui-sref-active="active" ui-sref="withdraw">Withdraw</a>
+        <a class="col-sm-4" ui-sref-active="active" ui-sref="history">History</a>
       </nav>
     </div>
-</div>
+  </div>
 
 <section ng-controller='WalletCtrl' ui-view>
 </section>

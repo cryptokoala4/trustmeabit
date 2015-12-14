@@ -88,3 +88,18 @@ form > li {
   padding-left: 20px;
   padding-bottom: 20px;
 }
+
+.center-tabs{
+  text-align: center;
+  font-size: 30px;
+}
+
+.wallet-tab-height{
+  height: 63px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.ui-sref-active a:active {
+    color:#BF2323 !important;
+}
