@@ -47,11 +47,21 @@
           <div class="col-lg-8">
               <div class="panel panel-default">
                   <div class="panel-heading">
-                      <a href="#/profile" >Your public profile link</a>
+                      <a href="#/profile">Your public profile link</a>
                   </div>
                   <!-- /.panel-heading -->
                   <div class="panel-body">
-                  www.public-link.com (dummy)
+                  <a ng-click="createWallet()">Create your Bitcoin Wallet Address</a>
+                  </div>
+                  <!-- /.panel-body -->
+              </div>
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <div>Your Bitcoin Wallet address: {{ wallet.address }}</div>
+                  </div>
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                  Wallet address here
                   </div>
                   <!-- /.panel-body -->
               </div>

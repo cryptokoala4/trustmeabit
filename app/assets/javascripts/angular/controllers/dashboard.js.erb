@@ -1,5 +1,13 @@
-app.controller('DashboardCtrl', ['$scope', '$auth', '$location',
-  function($scope, $auth, $location){
+app.controller('DashboardCtrl', ['$scope', '$http', '$auth', '$location',
+  function($scope, $http, $auth, $location){
 
-
+    $scope.createWallet = function(){
+      console.log("createWallet")
+      $http
+        .post('http://localhost:3000/wallets', $scope.newaddr)
+        .then(function(response){
+          // console.log("got a response")
+          $scope.wallet = response.data.wallet;
+        })
+    }
 }])

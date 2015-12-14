@@ -22,20 +22,20 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
      templateUrl: "<%= asset_path('pages/profile.html') %>",
      controller: 'ProfileCtrl'
    })
-    .state('deposit', {
-      url: '/deposit',
-      templateUrl: "<%= asset_path('pages/deposit.html') %>",
-    })
-    .state('withdraw', {
-      url: '/withdraw',
-      templateUrl: "<%= asset_path('pages/withdraw.html') %>",
-      controller: 'WalletCtrl'
-    })
-    .state('history', {
-      url: '/history',
-      templateUrl: "<%= asset_path('pages/history.html') %>",
-      controller: 'WalletCtrl'
-    })
+    // .state('deposit', {
+    //   url: '/deposit',
+    //   templateUrl: "<%= asset_path('pages/deposit.html') %>",
+    // })
+    // .state('withdraw', {
+    //   url: '/withdraw',
+    //   templateUrl: "<%= asset_path('pages/withdraw.html') %>",
+    //   controller: 'WalletCtrl'
+    // })
+    // .state('history', {
+    //   url: '/history',
+    //   templateUrl: "<%= asset_path('pages/history.html') %>",
+    //   controller: 'WalletCtrl'
+    // })
 
   $urlRouterProvider.otherwise('/');
 
