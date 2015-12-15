@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20151215085632) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
-    t.string   "display_name"
+    t.string   "nickname"
     t.string   "image"
     t.string   "email"
     t.string   "location"

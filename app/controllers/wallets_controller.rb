@@ -28,7 +28,6 @@ class WalletsController < ApplicationController
 
     @balance = addr.balance
 
-    @history = 'https://blockchain.info/rawaddr/16WLR1STX9YVEmgVuiCYb2AVef1Ygtis4y'
 
     render json: {
       balance: @balance,
