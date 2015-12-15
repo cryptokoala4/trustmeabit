@@ -7,45 +7,31 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
       url: '/',
       templateUrl: "<%= asset_path('pages/index.html') %>"
     })
-   .state('dashboard', {
-     url: '/dashboard',
-     templateUrl: "<%= asset_path('pages/dashboard.html') %>",
-     controller: 'DashboardCtrl',
-        resolve: {
-          auth: function($auth) {
-            return $auth.validateUser();
-          }
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: "<%= asset_path('pages/dashboard.html') %>",
+      controller: 'DashboardCtrl',
+      resolve: {
+        auth: function($auth) {
+          return $auth.validateUser();
         }
-   })
-   .state('wallet', {
-     url: '/wallet',
-     templateUrl: "<%= asset_path('pages/wallet.html') %>",
-     controller: 'WalletCtrl',
-        resolve: {
-          auth: function($auth) {
-            return $auth.validateUser();
-          }
+      }
+    })
+    .state('wallet', {
+      url: '/wallet',
+      templateUrl: "<%= asset_path('pages/wallet.html') %>",
+      controller: 'WalletCtrl',
+      resolve: {
+        auth: function($auth) {
+          return $auth.validateUser();
         }
-   })
-   .state('profile', {
-     url: '/profile',
-     templateUrl: "<%= asset_path('pages/profile.html') %>",
-     controller: 'ProfileCtrl'
-   })
-    // .state('deposit', {
-    //   url: '/deposit',
-    //   templateUrl: "<%= asset_path('pages/deposit.html') %>",
-    // })
-    // .state('withdraw', {
-    //   url: '/withdraw',
-    //   templateUrl: "<%= asset_path('pages/withdraw.html') %>",
-    //   controller: 'WalletCtrl'
-    // })
-    // .state('history', {
-    //   url: '/history',
-    //   templateUrl: "<%= asset_path('pages/history.html') %>",
-    //   controller: 'WalletCtrl'
-    // })
+      }
+    })
+    .state('profile', {
+      url: '/profile',
+      templateUrl: "<%= asset_path('pages/profile.html') %>",
+      controller: 'ProfileCtrl'
+    })
 
   $urlRouterProvider.otherwise('/');
 
@@ -53,7 +39,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
     // By default, you only need to configure apiUrl
     // Note that if you put a '/' at the end of the link, there will be errors when calling the api
     apiUrl: 'http://localhost:3000',
-    omniauthWindowType: 'newWindow',
     authProviderPaths: {
       facebook: '/auth/facebook'
     }

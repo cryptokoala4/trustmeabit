@@ -23,7 +23,7 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$u
        console.log(resp);
        // redirect back to root when registration succesfull
        $scope.cancel()
-       $location.path('/');
+       $location.path('/dashboard');
      }).
      catch(function(resp) {
        // handle error response
@@ -39,7 +39,7 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$u
        console.log(resp);
 
        // redirect back to root when registration
-       $location.path('/');
+       $location.path('/dashboard');
      }).
      catch(function(resp) {
        // handle error response
