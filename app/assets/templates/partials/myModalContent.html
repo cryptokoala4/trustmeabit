@@ -1,0 +1,152 @@
+<div class="modal-header">
+  <h3 class="modal-title">Continue with one of these accounts</h3>
+</div>
+
+<div class="modal-body" ng-show="registrationView">
+  <form class="form-modal-size" ng-submit="login()" role="form" ng-init="loginForm = {}">
+  <ul class="list-inline">
+    <li>
+      <a ng-click="oauthSignin('facebook')" class="btn btn-block btn-social btn-facebook">
+      <span class="fa fa-facebook"></span>Sign in with Facebook</a>
+    </li>
+    <li>
+      <a ng-click="oauthSignin('twitter')" class="btn btn-block btn-social btn-twitter">
+      <span class="fa fa-twitter"></span>Sign in with Twitter</a>
+    </li>
+    <li>
+      <a ng-click="oauthSignin('linkedin')" class="btn btn-block btn-social btn-linkedin">
+      <span class="fa fa-linkedin"></span>Sign in with LinkedIn</a>
+    </li>
+    <li>
+      <a ng-click="oauthSignin('github')" class="btn btn-block btn-social btn-github">
+      <span class="fa fa-github"></span>Sign in with Github</a>
+    </li>
+  </ul>
+  <form class="form-modal-size" ng-submit="login()" role="form" ng-init="loginForm = {}">
+  <p class="sign-up-with-email">Or log in with your email</p>
+
+  <div class="form-group">
+    <input  type="email"
+            name="email"
+            ng-model="loginForm.email"
+            required="required"
+            class="form-control"
+            placeholder="Enter Email"
+            tabindex="4"/>
+  </div>
+
+  <div class="form-group">
+    <input type="password"
+           name="password"
+           ng-model="loginForm.password"
+           required="required"
+           class="form-control"
+           placeholder="Enter Password"
+           tabindex="5"/>
+  </div>
+
+  <hr class="auth-colorgraph">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+      <input type="submit" value="Login" class="btn btn-success btn-mg login-button" tabindex="7">
+    </div>
+      <div class="sign-up-float">
+        New to Trust me a Bit?
+        <a ng-click="registrationView=false">Sign up</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- <div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div> -->
+
+<div class="modal-body" ng-hide="registrationView">
+  <ul class="list-inline">
+    <li>
+      <a ng-click="oauthSignin('facebook')" class="btn btn-block btn-social btn-facebook">
+      <span class="fa fa-facebook"></span>Sign in with Facebook</a>
+    </li>
+    <li>
+      <a ng-click="oauthSignin('twitter')" class="btn btn-block btn-social btn-twitter">
+      <span class="fa fa-twitter"></span>Sign in with Twitter</a>
+    </li>
+    <li>
+      <a  ng-click="oauthSignin('linkedin')" class="btn btn-block btn-social btn-linkedin">
++      <span class="fa fa-linkedin"></span>Sign in with LinkedIn</a>
+    </li>
+    <li>
+      <a ng-click="oauthSignin('github')" class="btn btn-block btn-social btn-github">
+      <span class="fa fa-github"></span>Sign in with Github</a>
+    </li>
+  </ul>
+  <form class="form-modal-size" ng-submit="signup()" role="form" ng-init="loginForm = {}">
+  <p class="sign-up-with-email">Or register with your email</p>
+
+      <form ng-submit="signup()" role="form" ng-init="registrationForm = {}">
+        <hr class="auth-colorgraph">
+        <!-- Row1: Display Name -->
+        <div class="form-group">
+          <input type="text"
+                 name="display_name"
+                 ng-model="registrationForm.nickname"
+                 class="form-control"
+                 placeholder="Display Name"
+                 tabindex="3">
+        </div>
+        <!-- Row2: Email -->
+        <div class="form-group">
+          <input  type="email"
+                  name="email"
+                  ng-model="registrationForm.email"
+                  required="required"
+                  class="form-control"
+                  placeholder="Enter Email"
+                  tabindex="4"/>
+        </div>
+        <!-- Row3: Password & Confirm Password -->
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+              <input type="password"
+                     name="password"
+                     ng-model="registrationForm.password"
+                     required="required"
+                     class="form-control"
+                     placeholder="Enter Password"
+                     tabindex="5"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+              <input type="password"
+                     name="password_confirmation"
+                     ng-model="registrationForm.password_confirmation"
+                     required="required"
+                     class="form-control"
+                     placeholder="Password Confirmation"
+                     tabindex="6"/>
+            </div>
+          </div>
+        </div>
+
+        <hr class="auth-colorgraph">
+
+        <div class="row">
+          <div class="col-xs-12">
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            <input type="submit" value="Register" class="btn btn-primary btn-mg signup-button" tabindex="7">
+          </div>
+          <div class="sign-up-float">
+             Already a member?
+             <a ng-click="registrationView=true">Log in here</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,36 @@
+app.controller('summaryInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$uibModalInstance', '$location', function($scope, $uibModal, $log, $auth, $uibModalInstance, $location){
+
+  $scope.ok = function () {
+    $uibModalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+  $scope.login = function () {
+    $auth.submitLogin($scope.loginForm).
+     then(function(resp) {
+       // handle success response
+       console.log(resp);
+       // redirect back to root when registration succesfull
+       $scope.cancel()
+       $location.path('/');
+     }).
+     catch(function(resp) {
+       // handle error response
+       console.log(resp.errors);
+     });
+  }
+
+  // $scope.registrationView = function() {
+  //   !scope.registrationView;
+  // };
+
+  $scope.registrationView = true;
+  // $scope.toggleView = function() {
+  //   $scope.registrationView = !$scope.registrationView;
+  // };
+
+
+}]);

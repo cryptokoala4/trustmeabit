@@ -3,4 +3,13 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
+  resources :wallets, except: [:destroy]
+  # get 'api/index' => 'wallets#index'
+
+  # get 'api/show' => 'wallets#show'
+
+  # get 'api/create' => 'wallets#create'
+
+  # get 'api/post' => 'wallets#post'
+
 end

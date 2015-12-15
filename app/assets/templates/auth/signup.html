@@ -2,26 +2,70 @@
 </main-nav-bar>
 <div class="container">
   <div class="row">
-    <h1>Sign Up</h1>
-    <form ng-submit="signup()" role="form">
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control" placeholder="Enter Email"/>
-      </div>
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+      <form ng-submit="signup()" role="form" ng-init="registrationForm = {}">
+        <h2>Register <small> to explore around </small></h2>
+        <hr class="auth-colorgraph">
+        <!-- Row1: Display Name -->
+        <div class="form-group">
+          <input type="text"
+                 name="display_name"
+                 ng-model="registrationForm.nickname"
+                 class="form-control input-lg"
+                 placeholder="Display Name"
+                 tabindex="3">
+        </div>
+        <!-- Row2: Email -->
+        <div class="form-group">
+          <input  type="email"
+                  name="email"
+                  ng-model="registrationForm.email"
+                  required="required"
+                  class="form-control"
+                  placeholder="Enter Email"
+                  tabindex="4"/>
+        </div>
+        <!-- Row3: Password & Confirm Password -->
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+              <input type="password"
+                     name="password"
+                     ng-model="registrationForm.password"
+                     required="required"
+                     class="form-control input-lg"
+                     placeholder="Enter Password"
+                     tabindex="5"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+              <input type="password"
+                     name="password_confirmation"
+                     ng-model="registrationForm.password_confirmation"
+                     required="required"
+                     class="form-control input-lg"
+                     placeholder="Enter Password Confirmation"
+                     tabindex="6"/>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-8 col-sm-9 col-md-9">
+             Already a member?
+             <a href="/#/login"><strong class="label label-success">Log in here</strong></a>
+          </div>
+        </div>
 
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control" placeholder="Enter Password"/>
-      </div>
+        <hr class="auth-colorgraph">
 
-      <div class="form-group">
-        <label>password Confirmation</label>
-        <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control" placeholder="Enter Password Confirmation"/>
-      </div>
-
-      <button type="submit" class="btn btn-primary btn-lg">Register</button>
-      <a href="/#/"><button class="btn btn-danger btn-lg">Back</button></a>
-    </form>
+        <div class="row">
+          <div class="col-xs-12">
+            <input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7">
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 <main-footer>

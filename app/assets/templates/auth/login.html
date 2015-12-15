@@ -1,12 +1,30 @@
 <main-nav-bar>
 </main-nav-bar>
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-      <form ng-submit="login()" role="form" ng-init="loginForm = {}">
-        <h2>Login</h2>
-        <hr class="auth-colorgraph">
+      <form class="form-modal-size" ng-submit="login()" role="form" ng-init="loginForm = {}">
+        <p class="sign-up-with-email">Continue with one of these accounts</p>
+      <ul class="list-inline">
+        <li>
+          <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+          <span class="fa fa-facebook"></span>Sign in with Facebook</a>
+        </li>
+        <li>
+          <a href="/auth/twitter" class="btn btn-block btn-social btn-twitter">
+          <span class="fa fa-twitter"></span>Sign in with Twitter</a>
+        </li>
+        <li>
+          <a href="/auth/google" class="btn btn-block btn-social btn-google">
+          <span class="fa fa-google"></span>Sign in with Google+</a>
+        </li>
+        <li>
+          <a href="/auth/github" class="btn btn-block btn-social btn-github">
+          <span class="fa fa-github"></span>Sign in with Github</a>
+        </li>
+      </ul>
+      <p class="sign-up-with-email">Or log in with email</p>
+
 
         <div class="form-group">
           <input  type="email"
@@ -23,24 +41,21 @@
                  name="password"
                  ng-model="loginForm.password"
                  required="required"
-                 class="form-control input-lg"
+                 class="form-control"
                  placeholder="Enter Password"
                  tabindex="5"/>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-8 col-sm-9 col-md-9">
-             Not a member?
-             <a href="/#/signup"><strong class="label label-primary">Register here</strong></a>
-          </div>
         </div>
 
         <hr class="auth-colorgraph">
 
         <div class="row">
           <div class="col-xs-12">
-            <input type="submit" value="Login" class="btn btn-success btn-block btn-lg" tabindex="7">
+            <input type="submit" value="Login" class="btn btn-success btn-mg login-button" tabindex="7">
           </div>
+            <div class="sign-up-float">
+                 New to Trust me a Bit?
+                 <a href="/#/signup"><strong class="label label-primary">Sign up</strong></a>
+            </div>
         </div>
       </form>
     </div>

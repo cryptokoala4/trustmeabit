@@ -20,3 +20,12 @@
 
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-cookie/angular-cookie
+//= require angular-bootstrap/ui-bootstrap.min
+//= require angular-bootstrap/ui-bootstrap-tpls.min
+//= require angular-animate/angular-animate.min
+//= require metisMenu/dist/metisMenu.min
+//= require raphael/raphael-min
+//= require morrisjs/morris.min
+//= require startbootstrap-sb-admin-2/dist/js/sb-admin-2
+//= require angular-ui-router.stateHelper/statehelper.min
+

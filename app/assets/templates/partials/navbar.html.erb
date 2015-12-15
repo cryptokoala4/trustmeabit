@@ -12,13 +12,13 @@
       <ul class="nav navbar-nav navbar-right">
 
 
-        <li><a href="#">How it works</a></li>
+        <li><a href="#" ng-hide="loggedIn">How it works</a></li>
 
-        <li><a href="#/dashboard" ng-show="loggedIn">Welcome {{ user.email }}</a></li>
+        <li ng-show="loggedIn"><a href="#/wallet"><button>Withdraw/Deposit</button>   <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>">  {{ balance }}   BTC</a></li>
 
-        <li><a ng-hide="loggedIn" href="/#/signup">Register</a></li>
+        <li><a href="#/dashboard" ng-show="loggedIn">Hi {{ user.email }}</a></li>
 
-        <li><a ng-hide="loggedIn" href="/#/login">Login</a></li>
+        <li><a ng-controller="ModalDemoCtrl" ng-hide="loggedIn" ng-click="open()">Login</a></li>
 
         <li><a href='#' ng-show="loggedIn" ng-click="logout()">Logout</a></li>
       </ul>
