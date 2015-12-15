@@ -2,33 +2,36 @@ app.controller('navbarCtrl', ['$scope', '$auth', '$location', '$rootScope', '$ht
   function($scope, $auth, $location, $rootScope, $http){
 
     // CHECK IF USER IS LOGGED IN
-    $scope.authResponse  = $auth.validateUser();
-    $scope.authStatus = $scope.authResponse.$$state.status;
+    $auth.validateUser().then(function(response){
+      console.log(response);
+      $scope.loggedIn = true;
+    }, function(response){
+      console.log(response);
+      $scope.loggedIn = false;
+    });
 
     $rootScope.$on('auth:login-success', function(ev, user) {
       $scope.loggedIn = true
     });
 
-    // SHOW/HIDE BUTTONS
-    if ($scope.authStatus == 1) {
-      $scope.loggedIn = true;
-    } else {
-      $scope.loggedIn = false;
-    };
-
     $scope.logout = function() {
-      $auth.signOut();
-      $scope.loggedIn = false;
+      $auth.signOut().then(function(response){
+        console.log(response)
+        $scope.loggedIn = false;
+      }, function(response){
+        console.log(response)
+      })
     }
-      $http
-        .get('http://localhost:3000/wallets/show')
-        .then(function(response){
-          $scope.balance = response.data.balance / 100000000;
-          // console.log(response.data.address);
 
-          // $scope.addresses = response.data.address[0].address;
-          // $scope.addresses = response.data.address;
-          // console.log(response.data)//[0].balance;
+    // review-denis | take this out
+    $http
+      .get('http://localhost:3000/wallets/show')
+      .then(function(response){
+        $scope.balance = response.data.balance / 100000000;
+        // console.log(response.data.address);
+
+        // $scope.addresses = response.data.address[0].address;
+        // $scope.addresses = response.data.address;
+        // console.log(response.data)//[0].balance;
     });
-
 }])
