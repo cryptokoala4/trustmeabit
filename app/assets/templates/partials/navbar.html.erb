@@ -14,7 +14,7 @@
 
         <li><a href="#" ng-hide="loggedIn">How it works</a></li>
 
-        <li ng-show="loggedIn"><a href="#/wallet"><button>Withdraw/Deposit</button><img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>"> 0.00 (dummy)</a></li>
+        <li ng-show="loggedIn"><a href="#/wallet"><button>Withdraw/Deposit</button>   <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>">  {{ balance }}   BTC</a></li>
 
         <li><a href="#/dashboard" ng-show="loggedIn">Hi {{ user.email }}</a></li>
 

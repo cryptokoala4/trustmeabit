@@ -1,38 +1,50 @@
 class WalletsController < ApplicationController
-  def index
-  end
+  before_action :authenticate_user!
 
-  def show
-     @wallet = Blockchain::Wallet.new(ENV['BITCOIN_ID'], ENV['BITCOIN_PASSWORD'])
-    begin
-      @addresses = @wallet.list_addresses()
-    rescue Exception => e
-      puts e
-    end
+  def index
+    @wallet = Blockchain::Wallet.new(ENV['BITCOIN_ID'], ENV['BITCOIN_PASSWORD'])
+
+    @addresses = @wallet.list_addresses()
       @addresses.each do |a|
           puts a.balance
       end
-    begin
-      @balance = @wallet.get_balance()
-    rescue Exception => e
-      puts e
-    end
 
     render json: {
       balance: @balance,
-      # wallet: @wallet,
       address: @addresses
       }
   end
 
-  def create
-     @wallet = Blockchain::Wallet.new(ENV['BITCOIN_ID'], ENV['BITCOIN_PASSWORD'])
-    begin
-      render json: {
-        wallet: @wallet.new_address
+  def show
+    @wallet = Blockchain::Wallet.new(ENV['BITCOIN_ID'], ENV['BITCOIN_PASSWORD'])
+    @user_wallet = current_user.wallets.first.wallet
+    addr = @wallet.get_address(@user_wallet, confirmations = 2)
+
+
+    # @addresses = @wallet.list_addresses()
+      # @addresses.each do |a|
+      #     puts a.balance
+      # end
+
+    @balance = addr.balance
+
+    @history = 'https://blockchain.info/rawaddr/16WLR1STX9YVEmgVuiCYb2AVef1Ygtis4y'
+
+    render json: {
+      balance: @balance,
+      # wallet: @wallet,
+      address: @user_wallet
+
       }
-    rescue Exception => e
-      puts e
+  end
+
+  def create
+    @wallet = Blockchain::Wallet.new(ENV['BITCOIN_ID'], ENV['BITCOIN_PASSWORD'])
+    @new_wallet = current_user.wallets.create(wallet: @wallet.new_address.address)
+    if @new_wallet
+      render json: {wallet: @wallet.new_address }
+    else
+      render json: {message: "there was an error"}
     end
   end
 end

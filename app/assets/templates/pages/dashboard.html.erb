@@ -8,24 +8,24 @@
           <ul class="nav" id="side-menu">
               <li>
                   <img class="empty-profile" src="<%= asset_path('empty.jpg') %>" alt="<%= asset_path('empty.jpg') %>">
-                  <div class="center-text">User name
+                  <div class="center-text">{{ user.email }}
                   </div>
-              </li>
-              <li>
-                  <p class="center-text" >Profile</p>
               </li>
                   <ul class="nav nav-second-level">
                       <li class="padding-left">Name
-                        <div>User.name<i class="fa fa-wrench fa-fw"></i></div>
+                      <div class="pull-right">
+                        <a class="center-text" ng-controller="summaryCtrl" ng-click="open()">Edit</a><i class="fa fa-wrench fa-fw"></i>
+                      </div>
+                        <div>User.name</div>
                       </li>
                       <li class="padding-left">Location
-                        <div>User.Location<i class="fa fa-wrench fa-fw"></i></div>
+                        <div>User.Location</div>
                       </li>
                       <li class="padding-left">Website
-                        <div>User.website<i class="fa fa-wrench fa-fw"></i></div>
+                        <div>User.website</div>
                       </li>
                       <li class="padding-left">Summary
-                        <div>User.summary<i class="fa fa-wrench fa-fw"></i></div>
+                        <div>User.summary</div>
                       </li>
                   </ul>
                   <!-- /.nav-second-level -->
@@ -50,18 +50,18 @@
                       <a href="#/profile">Your public profile link</a>
                   </div>
                   <!-- /.panel-heading -->
-                  <div class="panel-body">
+                  <div class="panel-body" ng-hide="address">
                   <a ng-click="createWallet()">Create your Bitcoin Wallet Address</a>
                   </div>
                   <!-- /.panel-body -->
               </div>
               <div class="panel panel-default">
                   <div class="panel-heading">
-                      <div>Your Bitcoin Wallet address: {{ wallet.address }}</div>
+                      <div>Your Bitcoin Wallet address</div>
                   </div>
                   <!-- /.panel-heading -->
                   <div class="panel-body">
-                  Wallet address here
+                    {{ address }}
                   </div>
                   <!-- /.panel-body -->
               </div>
@@ -123,7 +123,6 @@
               </div>
           </div>
 
-          <!-- /.col-lg-8 -->
           <div class="col-lg-4">
               <div class="panel panel-default">
                   <div class="panel-heading">
@@ -148,7 +147,7 @@
                         <input type="text" name="file">
                       </div>
                       <div>
-                        Balance: <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>"> 0.6
+                        Balance: <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>"> {{ balance }}
                       </div>
                       <div>
                         <button>Create one-time link</button>

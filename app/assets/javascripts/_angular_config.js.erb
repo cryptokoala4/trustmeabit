@@ -10,12 +10,22 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
    .state('dashboard', {
      url: '/dashboard',
      templateUrl: "<%= asset_path('pages/dashboard.html') %>",
-     controller: 'DashboardCtrl'
+     controller: 'DashboardCtrl',
+        resolve: {
+          auth: function($auth) {
+            return $auth.validateUser();
+          }
+        }
    })
    .state('wallet', {
      url: '/wallet',
      templateUrl: "<%= asset_path('pages/wallet.html') %>",
-     controller: 'WalletCtrl'
+     controller: 'WalletCtrl',
+        resolve: {
+          auth: function($auth) {
+            return $auth.validateUser();
+          }
+        }
    })
    .state('profile', {
      url: '/profile',
@@ -43,7 +53,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
     // By default, you only need to configure apiUrl
     // Note that if you put a '/' at the end of the link, there will be errors when calling the api
     apiUrl: 'http://localhost:3000',
-    omniauthWindowType: 'newWindow',
+    // omniauthWindowType: 'newWindow',
     authProviderPaths: {
       facebook: '/auth/facebook'
     }

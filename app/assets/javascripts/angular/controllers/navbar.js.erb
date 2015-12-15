@@ -1,5 +1,5 @@
-app.controller('navbarCtrl', ['$scope', '$auth', '$location', '$rootScope',
-  function($scope, $auth, $location, $rootScope){
+app.controller('navbarCtrl', ['$scope', '$auth', '$location', '$rootScope', '$http',
+  function($scope, $auth, $location, $rootScope, $http){
 
     // CHECK IF USER IS LOGGED IN
     $scope.authResponse  = $auth.validateUser();
@@ -20,17 +20,15 @@ app.controller('navbarCtrl', ['$scope', '$auth', '$location', '$rootScope',
       $auth.signOut();
       $scope.loggedIn = false;
     }
+      $http
+        .get('http://localhost:3000/wallets/show')
+        .then(function(response){
+          $scope.balance = response.data.balance / 100000000;
+          // console.log(response.data.address);
+
+          // $scope.addresses = response.data.address[0].address;
+          // $scope.addresses = response.data.address;
+          // console.log(response.data)//[0].balance;
+    });
+
 }])
-
-
-      // $scope.logout = function () {
-      //   $auth.signOut().then(function(resp) {
-      //     UserFactory.identity = null;
-      //     $scope.loggedIn = null;
-      //   }).catch(function(resp) {
-      //     console.log(resp);
-      //   });
-      //   $rootScope.$on('auth:logout-success', function(ev) {
-      //     alert('goodbye');
-      //   });
-      // };

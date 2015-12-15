@@ -6,11 +6,11 @@
   <form class="form-modal-size" ng-submit="login()" role="form" ng-init="loginForm = {}">
   <ul class="list-inline">
     <li>
-      <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+      <a ng-click="oauthSignin('facebook')" class="btn btn-block btn-social btn-facebook">
       <span class="fa fa-facebook"></span>Sign in with Facebook</a>
     </li>
     <li>
-      <a href="/auth/twitter" class="btn btn-block btn-social btn-twitter">
+      <a ng-click="oauthSignin('twitter')" class="btn btn-block btn-social btn-twitter">
       <span class="fa fa-twitter"></span>Sign in with Twitter</a>
     </li>
     <li>

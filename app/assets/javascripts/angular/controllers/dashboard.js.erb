@@ -1,6 +1,9 @@
 app.controller('DashboardCtrl', ['$scope', '$http', '$auth', '$location',
   function($scope, $http, $auth, $location){
 
+    // $http.get(url_in_rails)
+    // .then
+
     $scope.createWallet = function(){
       console.log("createWallet")
       $http
@@ -8,6 +11,20 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$auth', '$location',
         .then(function(response){
           // console.log("got a response")
           $scope.wallet = response.data.wallet;
+          console.log(response.data);
         })
+
     }
+      $http
+        .get('http://localhost:3000/wallets/show')
+        .then(function(response){
+          $scope.address = response.data.address
+          // console.log(response.data.address);
+
+          // $scope.addresses = response.data.address[0].address;
+          // $scope.addresses = response.data.address;
+          // console.log(response.data)//[0].balance;
+    });
 }])
+
+

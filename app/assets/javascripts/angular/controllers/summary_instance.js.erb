@@ -1,4 +1,4 @@
-app.controller('ModalInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$uibModalInstance', '$location', function($scope, $uibModal, $log, $auth, $uibModalInstance, $location){
+app.controller('summaryInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$uibModalInstance', '$location', function($scope, $uibModal, $log, $auth, $uibModalInstance, $location){
 
   $scope.ok = function () {
     $uibModalInstance.close($scope.selected.item);
@@ -7,14 +7,6 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$u
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-
-  $scope.oauthSignin = function (provider) {
-    $auth.authenticate(provider).then(function(response){
-      console.log(response)
-    }, function(response){
-      console.log(response)
-    });
-  }
 
   $scope.login = function () {
     $auth.submitLogin($scope.loginForm).
@@ -30,22 +22,6 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$u
        console.log(resp.errors);
      });
   }
-
-  $scope.registrationForm = {}
-  $scope.signup = function () {
-    $auth.submitRegistration($scope.registrationForm).
-     then(function(resp) {
-       // handle success response
-       console.log(resp);
-
-       // redirect back to root when registration
-       $location.path('/');
-     }).
-     catch(function(resp) {
-       // handle error response
-       console.log(resp);
-     });
-  };
 
   // $scope.registrationView = function() {
   //   !scope.registrationView;
