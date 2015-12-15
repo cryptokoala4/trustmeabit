@@ -11,14 +11,95 @@
  * file per style scope.
  *
  *= require bootstrap/dist/css/bootstrap.min
+ *= require components-font-awesome/css/font-awesome.min
+ *= require bootstrap-social/bootstrap-social
+ *= require metisMenu/dist/metisMenu.min
+ *= require startbootstrap-sb-admin-2/dist/css/timeline
+ *= require startbootstrap-sb-admin-2/dist/css/sb-admin-2
+ *= require morrisjs/morris
  *= require_tree .
  *= require_self
  */
 
+
 body{
-  padding-top: 50px;
+  padding-top: 60px;
   padding-bottom: 50px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   overflow-x: hidden; /* prevent horizontal scrollbar from appearing */
+}
+
+form > li {
+  list-style-type: none;
+}
+
+.btn-social{
+  width: 195px;
+  margin: 5px;
+
+}
+
+.sign-up-with-email {
+    text-align: center;
+    position: relative;
+}
+
+.sign-up-float{
+  float: right;
+  margin-top: 8px;
+  margin-right: 15px;
+}
+
+.form-modal-size{
+  width: 440px;
+}
+
+.login-button{
+  width: 150px;
+  float: right;
+}
+
+.signup-button{
+  width: 150px;
+  float: right;
+}
+
+.modal-dialog{
+  width: 470px;
+}
+
+.bitcoin-currency-icon{
+  width: 18px;
+}
+
+.empty-profile{
+  width: 250px;
+}
+
+.center-text{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.padding-left{
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.center-tabs{
+  text-align: center;
+  font-size: 30px;
+}
+
+.wallet-tab-height{
+  height: 63px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.ui-sref-active a:active {
+    color:#BF2323 !important;
 }

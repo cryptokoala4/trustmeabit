@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210081502) do
+ActiveRecord::Schema.define(version: 20151215085632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20151210081502) do
     t.string   "nickname"
     t.string   "image"
     t.string   "email"
+    t.string   "location"
+    t.string   "website"
+    t.string   "summary"
+    t.string   "wallet_address"
     t.json     "tokens"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,4 +45,12 @@ ActiveRecord::Schema.define(version: 20151210081502) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
+  create_table "wallets", force: :cascade do |t|
+    t.string  "wallet"
+    t.integer "user_id"
+  end
+
+  add_index "wallets", ["user_id"], name: "index_wallets_on_user_id", using: :btree
+
+  add_foreign_key "wallets", "users"
 end

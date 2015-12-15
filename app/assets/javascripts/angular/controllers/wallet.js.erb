@@ -1,0 +1,19 @@
+app.controller('WalletCtrl', ['$http', '$scope', '$auth', '$location',
+  function($http, $scope, $auth, $location){
+
+
+    $http
+      .get('http://localhost:3000/wallets/show')
+      .then(function(response){
+        console.log(response.data);
+        $scope.balance = response.data.balance / 100000000;
+        $scope.address = response.data.address
+    });
+
+    $scope.withdraw = {};
+    $scope.withdrawBTC = function () {
+      console.log("send btc")
+      console.log($scope.withdraw)
+    }
+  }
+])
