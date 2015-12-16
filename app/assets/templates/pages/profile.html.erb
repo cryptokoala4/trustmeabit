@@ -1,19 +1,20 @@
 <main-nav-bar>
 </main-nav-bar>
-<div id="wrapper">
+
+<div id="wrapper" class="profile-background">
   <!-- Tab Navs -->
   <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav">
       <ul class="nav" id="side-menu">
         <li>
-          <img class="empty-profile" ng-src="{{ user.image }}?type=large" err-src="<%= asset_path('empty.jpg') %>">
+          <img class="empty-profile" ng-src="{{ profileUser.image }}?type=large" onerror="this.src='<%= asset_path('empty.jpg') %>'">
         </li>
         <ul class="nav nav-second-level">
           <li class="padding-left">Location
-            <div>{{ user.location }}<i class="fa fa-wrench fa-fw"></i></div>
+            <div>{{ profileUser.location }}<i class="fa fa-wrench fa-fw"></i></div>
           </li>
           <li class="padding-left">Website
-            <div>{{ user.website }}<i class="fa fa-wrench fa-fw"></i></div>
+            <div>{{ profileUser.website }}<i class="fa fa-wrench fa-fw"></i></div>
           </li>
         </ul>
         </li>
@@ -25,7 +26,7 @@
   <div id="page-wrapper">
     <div class="row">
       <div class="page-header col-lg-12">
-        <h1 class="pull-left">Trust {{ user.nickname }} a Bit</h1>
+        <h1 class="pull-left">Trust {{ profileUser.nickname }} a Bit</h1>
         <h2 class="pull-right"><a href="">Or fund directly with Bitcoin</a></h2>
       </div>
     </div>
@@ -34,11 +35,11 @@
       <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3>About {{ user.nickname }}</h3>
+            <h3>About {{ profileUser.nickname }}</h3>
           </div>
           <!-- /.panel-heading -->
           <div class="panel-body">
-           {{ user.summary }}
+           {{ profileUser.summary }}
           </div>
           <!-- /.panel-body -->
         </div>

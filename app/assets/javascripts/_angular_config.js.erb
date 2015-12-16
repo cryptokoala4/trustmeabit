@@ -28,7 +28,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
       }
     })
     .state('profile', {
-      url: '/profile',
+      url: '/profile/:identification',
       templateUrl: "<%= asset_path('pages/profile.html') %>",
       controller: 'ProfileCtrl'
     })

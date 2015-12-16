@@ -7,7 +7,7 @@
     <div class="sidebar-nav">
       <ul class="nav" id="side-menu">
         <li>
-          <img class="empty-profile" ng-src="{{ user.image }}?type=large" err-src="<%= asset_path('empty.jpg') %>">
+          <img class="empty-profile" ng-src="{{ user.image }}?type=large" onerror="this.src='<%= asset_path('empty.jpg')%>'">
           <div class="center-text">{{ user.email }}
           </div>
         </li>
@@ -49,7 +49,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <a href="#/profile">Your public profile link</a>
+            Your public profile link is:<a href="#/profile/{{user.identification}}">  http://localhost:3000/#/profile/{{user.identification}}</a>
           </div>
           <div class="panel-body" ng-hide="address">
             <a ng-click="createWallet()">Create your Bitcoin Wallet Address</a>

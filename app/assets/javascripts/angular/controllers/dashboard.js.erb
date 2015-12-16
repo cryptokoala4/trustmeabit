@@ -1,6 +1,8 @@
 app.controller('DashboardCtrl', ['$scope', '$http', '$auth', '$location',
   function($scope, $http, $auth, $location){
 
+    console.log($scope.user);
+
     $scope.createWallet = function(){
       $http.post('http://localhost:3000/wallets', $scope.newaddr).then(function(response){
         console.log(response);
@@ -13,10 +15,24 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$auth', '$location',
 
     $http.get('http://localhost:3000/wallets/show').then(function(response){
       // console.log(response);
-      $scope.address = response.data.address
+      $scope.address = response.data.address;
+      delete $http.defaults.headers.common['X-Requested-With'];
+      $http.get('https://blockchain.info/rawaddr/' + response.data.address,
+        {
+          dataType: 'jsonp',
+          headers: {'Authorization': 'Token token=xxxxYYYYZzzz'}
+        })
+        .then(function(data){
+          console.log(data);
+        }, function(response){
+          console.log(response)
+        })
+
     }, function(response){
       console.log(response)
     });
+
+
 }])
 
 

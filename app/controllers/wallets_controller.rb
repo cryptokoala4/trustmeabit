@@ -40,9 +40,35 @@ class WalletsController < ApplicationController
   end
 
   def send_money
-    payment = @wallet.send('1CY7jZwp6d9JhZ9zZBZCLzztTp6LEYaoKk', 1, {from_address: '13bo34XTW9c8fpESDUXmanKsQF7rNF2uRr'})
+    error = false # default
+
+    recieve_address = User.find_by(id: params[:user_id]).wallet.wallet
+    send_address    = current_user.wallet.wallet
+
+    begin
+      payment = @wallet.send(recieve_address, params[:amount], {from_address: send_address})
+    rescue Exception => e
+      puts e.to_s
+      case e.to_s
+      when "No free outputs to spend"
+        error = true
+        message = "No free outputs to spend"
+      else
+        error = true
+        message = "there is a error"
+      end
+    end
+
+    if error
+      render json: {message: message}, status: 400
+    else
+      render json: {payment: payment.tx_hash}, status: 200
+    end
+  end
+
+  def history_money
     render json: {
-      payment: payment.tx_hash
+      history: 'https://blockchain.info/rawaddr/1PxBb9U7F9UssBuW9nWWMxaLAgYdP3zUQ9/'
     }
   end
 
