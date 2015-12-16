@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'aws-sdk-v1'
-gem 'paperclip'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
 gem 'omniauth-github'

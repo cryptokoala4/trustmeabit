@@ -1,5 +1,6 @@
-app.controller('navbarCtrl', ['$scope', '$auth', '$location', '$rootScope', '$http',
-  function($scope, $auth, $location, $rootScope, $http){
+app.controller('navbarCtrl', ['$scope', '$auth', '$location', '$rootScope', '$http', 'UrlFactory',
+  function($scope, $auth, $location, $rootScope, $http, UrlFactory){
+    var url = UrlFactory.url;
 
     // CHECK IF USER IS LOGGED IN
     $auth.validateUser().then(function(response){
@@ -25,7 +26,7 @@ app.controller('navbarCtrl', ['$scope', '$auth', '$location', '$rootScope', '$ht
 
     // review-denis | take this out
     $http
-      .get('http://localhost:3000/wallets/show')
+      .get(url + '/wallets/show')
       .then(function(response){
         // console.log(response)
         if (response.data.balance) {

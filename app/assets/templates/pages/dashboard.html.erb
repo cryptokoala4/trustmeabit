@@ -95,18 +95,18 @@
                   <table class="table table-bordered table-hover table-striped">
                     <thead>
                       <tr>
-                        <th>To</th>
+                        <th>From/Sent</th>
                         <th>Amount</th>
-                        <th>Time</th>
-                        <th>Date</th>
+<!--                         <th>Time</th>
+                        <th>Date</th> -->
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>User X</td>
-                        <td>0.05 BTC</td>
-                        <td>16:24</td>
-                        <td>22/12/2015</td>
+                      <tr ng-repeat="transaction in transactions">
+                        <td >{{ transaction.addr }}</td>
+                        <td>{{ transaction.amount / 100000000 }}</td>
+                        <!-- <td>16:24</td> -->
+                        <!-- <td>22/12/2015</td> -->
                       </tr>
                     </tbody>
                   </table>
@@ -126,10 +126,7 @@
           </div>
           <div class="panel-body">
             <div>
-              <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>"> 0.1 dummy received
-            </div>
-            <div>
-              <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>"> 0.5 dummy sent
+              <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>">
             </div>
           </div>
         </div>
@@ -155,6 +152,3 @@
     </div>
   </div>
 </div>
-
-<main-footer>
-</main-footer>
