@@ -103,3 +103,8 @@ form > li {
 .ui-sref-active a:active {
     color:#BF2323 !important;
 }
+
+.main-bit{
+  width: 28px;
+  padding-bottom: 7px;
+}

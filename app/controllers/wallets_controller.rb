@@ -39,6 +39,13 @@ class WalletsController < ApplicationController
     end
   end
 
+  def send_money
+    payment = @wallet.send('1CY7jZwp6d9JhZ9zZBZCLzztTp6LEYaoKk', 1, {from_address: '13bo34XTW9c8fpESDUXmanKsQF7rNF2uRr'})
+    render json: {
+      payment: payment.tx_hash
+    }
+  end
+
   private
 
   def set_wallet
@@ -52,3 +59,5 @@ class WalletsController < ApplicationController
     end
   end
 end
+# 13bo34XTW9c8fpESDUXmanKsQF7rNF2uRr
+# 1PxBb9U7F9UssBuW9nWWMxaLAgYdP3zUQ9

@@ -1,15 +1,14 @@
 <div class="modal-header">
-  <h3 class="modal-title">Edit your profile here</h3>
+  <h3 class="modal-title">Edit your profile</h3>
 </div>
 
-<div class="modal-body" ng-show="registrationView">
-  <form class="form-modal-size" ng-submit="login()" role="form" ng-init="loginForm = {}">
+<div class="modal-body">
+  <form class="form-modal-size" ng-submit="update(updateAccount)" role="form" ng-init="updateAccount = {}">
 
   <div class="form-group">
-    <input  type="email"
-            name="email"
-            ng-model="loginForm.email"
-            required="required"
+    <input  type="text"
+            name="text"
+            ng-model="updateAccount.nickname"
             class="form-control"
             placeholder="Name"
             tabindex="4"/>
@@ -18,8 +17,7 @@
   <div class="form-group">
     <input type="text"
            name="text"
-           ng-model="loginForm.password"
-           required="required"
+           ng-model="updateAccount.location"
            class="form-control"
            placeholder="Location"
            tabindex="5"/>
@@ -28,8 +26,7 @@
   <div class="form-group">
     <input type="text"
            name="text"
-           ng-model="loginForm.password"
-           required="required"
+           ng-model="updateAccount.website"
            class="form-control"
            placeholder="Website"
            tabindex="5"/>
@@ -37,7 +34,13 @@
 
 
   <div class="form-group"> <p>Summary</p>
-    <textarea rows="6" cols="50" name="text" data-type="link" placeholder="optional"></textarea>
+    <textarea ng-model="updateAccount.summary"
+              rows="6"
+              cols="50"
+              name="text"
+              data-type="link"
+              placeholder="optional">
+    </textarea>
   </div>
 
   <hr class="auth-colorgraph">

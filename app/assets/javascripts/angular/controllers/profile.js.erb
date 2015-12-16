@@ -1,5 +1,12 @@
-app.controller('ProfileCtrl', ['$scope', '$auth', '$location',
-  function($scope, $auth, $location){
+app.controller('ProfileCtrl', ['$http', '$scope', '$auth', '$location',
+  function($http, $scope, $auth, $location){
 
+    $scope.send = {};
+    $scope.sendBTC = function () {
+      console.log($scope.send);
+      $http.post('http://localhost:3000/wallets/send_money').then(function(response){
+        console.log(response);
+      })
+    }
 
 }])

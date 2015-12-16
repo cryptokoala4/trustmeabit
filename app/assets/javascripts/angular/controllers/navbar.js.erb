@@ -27,7 +27,12 @@ app.controller('navbarCtrl', ['$scope', '$auth', '$location', '$rootScope', '$ht
     $http
       .get('http://localhost:3000/wallets/show')
       .then(function(response){
-        $scope.balance = response.data.balance / 100000000;
+        // console.log(response)
+        if (response.data.balance) {
+          $scope.balance = response.data.balance / 100000000;
+        } else {
+          $scope.balance = 0;
+        }
         // console.log(response.data.address);
 
         // $scope.addresses = response.data.address[0].address;

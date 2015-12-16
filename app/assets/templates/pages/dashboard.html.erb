@@ -7,7 +7,7 @@
     <div class="sidebar-nav">
       <ul class="nav" id="side-menu">
         <li>
-          <img class="empty-profile" src="<%= asset_path('empty.jpg') %>" alt="<%= asset_path('empty.jpg') %>">
+          <img class="empty-profile" ng-src="{{ user.image }}?type=large" err-src="<%= asset_path('empty.jpg') %>">
           <div class="center-text">{{ user.email }}
           </div>
         </li>
@@ -16,16 +16,16 @@
             <div class="pull-right">
               <a class="center-text" ng-controller="summaryCtrl" ng-click="open()">Edit</a><i class="fa fa-wrench fa-fw"></i>
             </div>
-            <div>User.name</div>
+            <div>{{ user.nickname }}</div>
           </li>
           <li class="padding-left">Location
-            <div>User.Location</div>
+            <div>{{ user.location }}</div>
           </li>
           <li class="padding-left">Website
-            <div>User.website</div>
+            <div>{{ user.website }}</div>
           </li>
           <li class="padding-left">Summary
-            <div>User.summary</div>
+            <div>{{ user.summary }}</div>
           </li>
         </ul>
         </li>

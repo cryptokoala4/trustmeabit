@@ -5,8 +5,8 @@ app.controller('WalletCtrl', ['$http', '$scope', '$auth', '$location',
       .get('http://localhost:3000/wallets/show')
       .then(function(response){
         console.log(response.data);
+        $scope.address = response.data.address;
         $scope.balance = response.data.balance / 100000000;
-        $scope.address = response.data.address
     });
 
     $scope.withdraw = {};

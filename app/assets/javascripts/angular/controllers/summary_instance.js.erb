@@ -1,4 +1,7 @@
-app.controller('summaryInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '$uibModalInstance', '$location', function($scope, $uibModal, $log, $auth, $uibModalInstance, $location){
+app.controller('summaryInstanceCtrl', ['$scope', '$http','$uibModal', '$log', '$auth', '$uibModalInstance', '$location', function($scope, $http, $uibModal, $log, $auth, $uibModalInstance, $location){
+
+  // $scope.current_user = $auth.validateUser()
+  // console.log($scope.current_user.$$state.value.id)
 
   $scope.ok = function () {
     $uibModalInstance.close($scope.selected.item);
@@ -8,29 +11,28 @@ app.controller('summaryInstanceCtrl', ['$scope', '$uibModal', '$log', '$auth', '
     $uibModalInstance.dismiss('cancel');
   };
 
-  $scope.login = function () {
-    $auth.submitLogin($scope.loginForm).
-     then(function(resp) {
-       // handle success response
+  $scope.update = function () {
+    // console.log($scope.updateAccount)
+    $auth.updateAccount($scope.updateAccount)
+     .then(function(resp) {
        console.log(resp);
-       // redirect back to root when registration succesfull
        $scope.cancel()
-       $location.path('/');
+       // $location.path('/dashboard');
      }).
      catch(function(resp) {
-       // handle error response
        console.log(resp.errors);
-     });
+    });
   }
 
-  // $scope.registrationView = function() {
-  //   !scope.registrationView;
-  // };
 
-  $scope.registrationView = true;
-  // $scope.toggleView = function() {
-  //   $scope.registrationView = !$scope.registrationView;
-  // };
-
-
+  // $scope.update = function () {
+  //   $http.put('http://localhost:3000/users/' + $scope.current_user.$$state.value.id).
+  //     then(function(resp){
+  //     console.log(resp);
+  //   })
+  //      $scope.cancel();
+  //      // $location.path('/');
+  //    }, (function(resp) {
+  //      console.log(resp);
+  //    });
 }]);

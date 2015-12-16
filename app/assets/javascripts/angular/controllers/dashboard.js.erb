@@ -12,7 +12,7 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$auth', '$location',
     }
 
     $http.get('http://localhost:3000/wallets/show').then(function(response){
-      console.log(response);
+      // console.log(response);
       $scope.address = response.data.address
     }, function(response){
       console.log(response)

@@ -5,8 +5,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-8" id="static-banner">
-        <h1>Trust me a Bit</h1>
-        <a class="btn btn-default" href="">Get Started</a>
+        <h1>Trust me a <img class="main-bit" src="<%= asset_path('bitcoin.jpg') %>">it</h1>
+        <a class="btn btn-default" ng-controller="ModalDemoCtrl" ng-hide="loggedIn" ng-click="open()">Get Started</a>
       </div>
     </div>
   </div>
@@ -14,3 +14,4 @@
 
 <main-footer>
 </main-footer>
+
