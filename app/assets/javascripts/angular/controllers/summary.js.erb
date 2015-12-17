@@ -1,5 +1,6 @@
 app.controller('summaryCtrl', ['$scope', '$uibModal', '$log',
-'$auth', '$location', function($scope, $uibModal, $log, $auth, $location){
+'$auth', '$location', 'UrlFactory', function($scope, $uibModal, $log, $auth, $location, UrlFactory){
+  var url = UrlFactory.url;
 
   $scope.animationsEnabled = true;
 

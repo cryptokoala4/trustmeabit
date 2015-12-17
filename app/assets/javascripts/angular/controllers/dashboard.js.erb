@@ -1,10 +1,9 @@
-app.controller('DashboardCtrl', ['$scope', '$http', '$auth', '$location',
-  function($scope, $http, $auth, $location){
-
+app.controller('DashboardCtrl', ['$scope', '$http', '$auth', '$location', 'UrlFactory',
+  function($scope, $http, $auth, $location, UrlFactory){
+    var url = UrlFactory.url;
     // console.log($scope.user);
-
     $http
-      .get('http://localhost:3000/wallets/show')
+      .get(url + '/wallets/show')
       .then(function(response){
         $scope.transactions = response.data.transactions;
         console.log(response.data.transactions)
@@ -13,7 +12,7 @@ app.controller('DashboardCtrl', ['$scope', '$http', '$auth', '$location',
     });
 
     $scope.createWallet = function(){
-      $http.post('http://localhost:3000/wallets', $scope.newaddr).then(function(response){
+      $http.post(url + '/wallets', $scope.newaddr).then(function(response){
         console.log(response);
         $scope.wallet = response.data.wallet;
         $scope.address = response.data.wallet.wallet;

@@ -1,9 +1,10 @@
-app.controller('ProfileCtrl', ['$http', '$scope', '$auth', '$location', '$stateParams',
-  function($http, $scope, $auth, $location, $stateParams){
+app.controller('ProfileCtrl', ['$http', '$scope', '$auth', '$location', '$stateParams', 'UrlFactory',
+  function($http, $scope, $auth, $location, $stateParams, UrlFactory){
+    var url = UrlFactory.url;
     // console.log($stateParams);
 
     $http({
-      url: 'http://localhost:3000/users/' + $stateParams.identification,
+      url: url + '/users/' + $stateParams.identification,
       method: "GET",
     }).then(function(response){
       // console.log(response)
@@ -15,7 +16,7 @@ app.controller('ProfileCtrl', ['$http', '$scope', '$auth', '$location', '$stateP
     $scope.send = {};
     $scope.sendBTC = function () {
       console.log($scope.send);
-      $http.post('http://localhost:3000/wallets/send_money', $scope.send)
+      $http.post(url + '/wallets/send_money', $scope.send)
       .then(function(response){
         console.log(response);
       }, function(response){
