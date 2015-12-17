@@ -38,7 +38,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
   $authProvider.configure({
     // By default, you only need to configure apiUrl
     // Note that if you put a '/' at the end of the link, there will be errors when calling the api
-    apiUrl: ENV['DOMAIN'] || 'http://localhost:3000',
+    apiUrl: "<%= ENV['DOMAIN']%>" || 'http://localhost:3000',
     authProviderPaths: {
       facebook: '/auth/facebook'
     }
