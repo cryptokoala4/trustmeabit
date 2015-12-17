@@ -3,7 +3,7 @@ app.controller('WalletCtrl', ['$http', '$scope', '$auth', '$location', 'UrlFacto
     var url = UrlFactory.url;
 
     $http
-      .get(url + '/wallets/show')
+      .get('/wallets/show')
       .then(function(response){
         console.log(response.data);
         $scope.address = response.data.address;
@@ -13,7 +13,7 @@ app.controller('WalletCtrl', ['$http', '$scope', '$auth', '$location', 'UrlFacto
     $scope.transfer = {};
     $scope.transferBTC = function () {
       console.log($scope.transfer);
-      $http.post(url + '/wallets/transfer', $scope.transfer)
+      $http.post('/wallets/transfer', $scope.transfer)
       .then(function(response){
         console.log(response);
       }, function(response){
