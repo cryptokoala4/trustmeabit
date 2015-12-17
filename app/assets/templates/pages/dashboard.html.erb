@@ -97,15 +97,15 @@
                       <tr>
                         <th>From/Sent</th>
                         <th>Amount</th>
-<!--                         <th>Time</th>
-                        <th>Date</th> -->
+                        <th>Amount(HKD)</th>
+                        <th>Date</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr ng-repeat="transaction in transactions">
                         <td >{{ transaction.addr }}</td>
                         <td>{{ transaction.amount / 100000000 }}</td>
-                        <!-- <td>16:24</td> -->
+                        <td>{{ transaction.amount * 3531.83 / 100000000 }}</td>
                         <!-- <td>22/12/2015</td> -->
                       </tr>
                     </tbody>
