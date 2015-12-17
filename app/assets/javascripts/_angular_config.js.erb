@@ -13,7 +13,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($s
       controller: 'DashboardCtrl',
       resolve: {
         auth: function($auth) {
-          return $auth.validateUser();
+          return  $auth.validateUser();
         }
       }
     })
