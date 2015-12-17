@@ -1,0 +1,154 @@
+<main-nav-bar>
+</main-nav-bar>
+
+<div id="wrapper">
+  <!-- sidebar -->
+  <div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav">
+      <ul class="nav" id="side-menu">
+        <li>
+          <img class="empty-profile" ng-src="{{ user.image }}?type=large" onerror="this.src='/assets/empty-636f9cd452aa3bed9fe3372d73eea31381394b17017f189391628673d0b99333.jpg'">
+          <div class="center-text">{{ user.email }}
+          </div>
+        </li>
+        <ul class="nav nav-second-level">
+          <li class="padding-left">Name
+            <div class="pull-right">
+              <a class="center-text" ng-controller="summaryCtrl" ng-click="open()">Edit</a><i class="fa fa-wrench fa-fw"></i>
+            </div>
+            <div>{{ user.nickname }}</div>
+          </li>
+          <li class="padding-left">Location
+            <div>{{ user.location }}</div>
+          </li>
+          <li class="padding-left">Website
+            <div>{{ user.website }}</div>
+          </li>
+          <li class="padding-left">Summary
+            <div>{{ user.summary }}</div>
+          </li>
+        </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- main-content -->
+  <div id="page-wrapper">
+
+    <!-- content-title -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Dashboard</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- right-content -->
+      <div class="col-lg-8">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Your public profile link is:<a href="#/profile/{{user.identification}}">  tipmeabit.com/#/profile/{{user.identification}}</a>
+          </div>
+          <div class="panel-body" ng-hide="address">
+            <a ng-click="createWallet()">Create your Bitcoin Wallet Address</a>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div>Your Bitcoin Wallet address</div>
+          </div>
+          <div class="panel-body">
+            {{ address }}
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Sent and Received funds
+            <div class="pull-right">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                  Actions
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                  <li><a href="#">Sent and Received</a>
+                  </li>
+                  <li><a href="#">Sent</a>
+                  </li>
+                  <li><a href="#">Received</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li><a href="#">Other</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                      <tr>
+                        <th>From/Sent</th>
+                        <th>Amount</th>
+<!--                         <th>Time</th>
+                        <th>Date</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="transaction in transactions">
+                        <td >{{ transaction.addr }}</td>
+                        <td>{{ transaction.amount / 100000000 }}</td>
+                        <!-- <td>16:24</td> -->
+                        <!-- <td>22/12/2015</td> -->
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- left-content -->
+      <div class="col-lg-4">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <i class="fa fa-bar-chart-o fa-fw"></i>Balance History
+          </div>
+          <div class="panel-body">
+            <div>
+              <img class="bitcoin-currency-icon" src="/assets/bitcoinicon-8609788751870e9b609b87e55375b6333833b1c815527e9fd9c468b126e3edf0.jpg">
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Send funds
+          </div>
+          <div class="panel-body">
+            <div class="form-group"> Amount:
+              <input type="text" name="file">
+            </div>
+            <div>
+              Balance: <img class="bitcoin-currency-icon" src="/assets/bitcoinicon-8609788751870e9b609b87e55375b6333833b1c815527e9fd9c468b126e3edf0.jpg"> {{ balance }}
+            </div>
+            <div>
+              <button>Create one-time link</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
