@@ -157,12 +157,69 @@ form > li {
 
 .main-font{
   font-family: 'Dosis', sans-serif;
+  font-size: 30px;
+}
+
+.sub-font{
+  font-family: 'Dosis', sans-serif;
+  font-size: 25px;
+  color: #E04A1D;
+  text-shadow: 0px -1px #ff0000;
 }
 
 .main-button{
   margin-top: 50px;
 }
 
-.main-responsive{
-  margin-left: 40px;
+
+.detail-icon {
+  /*background-color: $color-white;*/
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 1px;
+  height: 90px;
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 90px;
+}
+
+svg {
+  height: 50px;
+  width: 50px;
+  margin-left: 17px;
+}
+
+.col-tips{
+  color: #FF812E;
+}
+
+.col-tipworthy{
+  color: #50C878;
+}
+
+.col-earn{
+  color: #369ff4;
+}
+
+.col-give{
+  color: #fe5f5e;
+}
+
+.align-center{
+  text-align: center;
+}
+
+.navbar-default{
+  background-color: #4C67A1;
+  border-color: #4C67A1;
+}
+
+.navbar{
+  background-color: #4C67A1;
+  border-color: #4C67A1;
+}
+
+.navbar-default .navbar-nav>li>a{
+  font-weight: bold;
+  color: white;
 }

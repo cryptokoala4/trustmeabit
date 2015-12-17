@@ -10,10 +10,9 @@
       <a class="navbar-brand" href="/"><img id="logo-nav" src="<%= asset_path('logo.png') %>"></a>
     </div>
     <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right navbar-font">
 
-
-        <li><a href="#" ng-hide="loggedIn">How it works</a></li>
+        <li><a class="navbar-font" href="#" ng-hide="loggedIn">How it works</a></li>
 
         <li ng-show="loggedIn"><a href="#/wallet"><button>Withdraw/Deposit</button>   <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>">  {{ balance }}   BTC</a></li>
 
