@@ -191,6 +191,7 @@ svg {
 
 .col-tips{
   color: #FF812E;
+  /*margin-left: 20px;*/
 }
 
 .col-tipworthy{
@@ -203,6 +204,7 @@ svg {
 
 .col-give{
   color: #fe5f5e;
+  /*margin-right: 20px;*/
 }
 
 .align-center{
@@ -222,4 +224,12 @@ svg {
 .navbar-default .navbar-nav>li>a{
   font-weight: bold;
   color: white;
+}
+
+.margin-top{
+  margin-top: 108px !important;
+}
+
+.margin-btm{
+  margin-bottom: 100px;
 }
