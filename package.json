@@ -1,0 +1,25 @@
+{
+  "name": "trustmeabit",
+  "version": "1.0.0",
+  "description": "_tl;dr: Support Reporters and Writers anonymously with Bitcoins_ #### Introduction Trust me a Bit (TMAB) lets you use Bitcoins to fund Reporters and Writers anonymously. The aim is to encourage writers to engage in quality journalism, by being rewarded with Bitcoin fundings from its (_cough_ generous _cough_) readers through TMAB or plain Bitcoin donations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackywhlee/trustmeabit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackywhlee/trustmeabit/issues"
+  },
+  "homepage": "https://github.com/jackywhlee/trustmeabit#readme",
+  "dependencies": {
+    "bower": "^1.7.1"
+  },
+  "scripts": {
+      "postinstall": "./node_modules/bower/bin/bower install"
+    }
+}
