@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails_12factor', group: :production
-gem 'execjs'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
 gem 'omniauth-github'

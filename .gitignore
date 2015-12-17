@@ -5,6 +5,5 @@
 .DS_Store
 
 /bower_components
-*.bowerrc
 
 .env
