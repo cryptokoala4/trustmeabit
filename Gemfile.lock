@@ -211,6 +211,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise_token_auth
   dotenv-rails
+  execjs
   jbuilder (~> 2.0)
   jquery-rails
   omniauth

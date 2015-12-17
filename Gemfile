@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'execjs'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
 gem 'omniauth-github'
