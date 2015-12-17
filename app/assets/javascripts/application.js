@@ -15,8 +15,6 @@
 //= require angular/angular.min
 //= require angular-ui-router/release/angular-ui-router.min
 //= require bootstrap/dist/js/bootstrap.min
-//= require_tree .
-//= require_self
 
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-cookie/angular-cookie
@@ -29,3 +27,5 @@
 //= require startbootstrap-sb-admin-2/dist/js/sb-admin-2
 //= require angular-ui-router.stateHelper/statehelper.min
 
+//= require_tree .
+//= require_self
