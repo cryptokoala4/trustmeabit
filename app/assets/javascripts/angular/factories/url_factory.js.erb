@@ -1,0 +1,5 @@
+app.factory('UrlFactory', function () {
+  return {
+    url: "<%= ENV['DOMAIN']%>" || 'http://localhost:3000'
+  }
+})

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
+  post '/wallets/send_money', to: "wallets#send_money"
+  post '/wallets/transfer', to: "wallets#transfer_money"
   resources :wallets, except: [:destroy]
+
+  get '/users/:identification', to: "users#identification"
   # get 'api/index' => 'wallets#index'
 
   # get 'api/show' => 'wallets#show'
@@ -11,5 +15,7 @@ Rails.application.routes.draw do
   # get 'api/create' => 'wallets#create'
 
   # get 'api/post' => 'wallets#post'
+
+ # resources :users, only: [:update, :create]
 
 end

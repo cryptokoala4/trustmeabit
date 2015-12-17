@@ -1,21 +1,20 @@
 <main-nav-bar>
 </main-nav-bar>
-<div id="wrapper">
+
+<div id="wrapper" class="profile-background">
   <!-- Tab Navs -->
   <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav">
       <ul class="nav" id="side-menu">
         <li>
-          <img class="empty-profile" src="<%= asset_path('empty.jpg') %>" alt="<%= asset_path('empty.jpg') %>">
-          <div class="center-text">Foo Bar
-          </div>
+          <img class="empty-profile" ng-src="{{ profileUser.image }}?type=large" onerror="this.src='<%= asset_path('empty.jpg') %>'">
         </li>
         <ul class="nav nav-second-level">
           <li class="padding-left">Location
-            <div>User.Location<i class="fa fa-wrench fa-fw"></i></div>
+            <div>{{ profileUser.location }}<i class="fa fa-wrench fa-fw"></i></div>
           </li>
           <li class="padding-left">Website
-            <div>User.website<i class="fa fa-wrench fa-fw"></i></div>
+            <div>{{ profileUser.website }}<i class="fa fa-wrench fa-fw"></i></div>
           </li>
         </ul>
         </li>
@@ -27,7 +26,7 @@
   <div id="page-wrapper">
     <div class="row">
       <div class="page-header col-lg-12">
-        <h1 class="pull-left">Trust Foo a Bit</h1>
+        <h1 class="pull-left">Trust {{ profileUser.nickname }} a Bit</h1>
         <h2 class="pull-right"><a href="">Or fund directly with Bitcoin</a></h2>
       </div>
     </div>
@@ -36,11 +35,11 @@
       <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3>About Foo</h3>
+            <h3>About {{ profileUser.nickname }}</h3>
           </div>
           <!-- /.panel-heading -->
           <div class="panel-body">
-            Real estate developer Donald John Trump was born June 14, 1946, in Queens, New York. In 1971 he became involved in large, profitable building projects in Manhattan. In 1980, he opened the Grand Hyatt, which made him the city's best known and most controversial developer. In 2004 Trump began starring in the hit NBC reality series The Apprentice, which also became an offshoot for The Celebrity Apprentice. In 2015 Trump announced his candidacy for president of the United States and shortly after the first Republican debate became the party's front-runner.
+           {{ profileUser.summary }}
           </div>
           <!-- /.panel-body -->
         </div>
@@ -50,22 +49,22 @@
       <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4>Fund Foo a Bit</h4>
+            <h4>Send this person some BTC</h4>
           </div>
           <div class="panel-body">
             <div class="form-group">
               <p>Amount:</p>
-              <input type="text" name="">
+              <input type="number" ng-model="send.amount">
             </div>
             <div class="form-group">
               <p>Message:</p>
-              <textarea rows="5" cols="40" name="text" data-type="link" placeholder="optional"></textarea>
+              <textarea ng-model="send.message" rows="5" cols="40" name="text" data-type="link" placeholder="optional"></textarea>
             </div>
             <div>
-              Remaining BTC Balance: <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>"> 0.6 (dummy)
+              Remaining BTC Balance: <img class="bitcoin-currency-icon" src="<%= asset_path('bitcoinicon.jpg') %>"> {{ balance }}
             </div>
             <div>
-              <button>Send Bitcoin</button>
+              <button ng-click="sendBTC()">Send Bitcoin</button>
             </div>
           </div>
         </div>

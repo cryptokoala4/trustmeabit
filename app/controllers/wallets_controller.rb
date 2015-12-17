@@ -24,9 +24,24 @@ class WalletsController < ApplicationController
     balance = address_object.balance
     address = address_object.address
 
+    require 'net/http'
+
+    url = URI.parse('https://blockchain.info/rawaddr/' + address)
+    req = JSON.parse(Net::HTTP::get(url))
+
+    @transactions = []
+    req['txs'].each do |txn|
+      txn['out'].each do |txn_detail|
+        if txn_detail['addr'] != address
+          @transactions << {addr: txn_detail['addr'], amount: txn_detail['value']}
+        end
+      end
+    end
+
     render json: {
       balance: balance,
-      address: address
+      address: address,
+      transactions: @transactions
     }
   end
 
@@ -38,6 +53,56 @@ class WalletsController < ApplicationController
       render json: {message: "there was an error"}
     end
   end
+
+  def send_money
+    error = false # default
+
+    recieve_address = User.find_by(id: params[:user_id]).wallet.wallet
+    send_address    = current_user.wallet.wallet
+    amount          = (params[:amount] * 100000000).to_i
+
+    begin
+      payment = @wallet.send(recieve_address, amount, {from_address: send_address})
+    rescue Exception => e
+      puts e.to_s
+      error = true
+      message = e.to_s
+    end
+
+    if error
+      render json: {message: message}, status: 400
+    else
+      render json: {payment: payment.tx_hash}, status: 200
+    end
+  end
+
+  def transfer_money
+    error = false # default
+
+    # recieve_address = User.find_by(id: params[:user_id]).wallet.wallet
+    send_address    = current_user.wallet.wallet
+
+    begin
+      payment = @wallet.send('1CY7jZwp6d9JhZ9zZBZCLzztTp6LEYaoKk', params[:amount], {from_address: send_address})
+    rescue Exception => e
+      puts e.to_s
+      case e.to_s
+      when "No free outputs to spend"
+        error = true
+        message = "No free outputs to spend"
+      else
+        error = true
+        message = "there is a error"
+      end
+    end
+
+    if error
+      render json: {message: message}, status: 400
+    else
+      render json: {payment: payment.tx_hash}, status: 200
+    end
+  end
+
 
   private
 
@@ -52,3 +117,5 @@ class WalletsController < ApplicationController
     end
   end
 end
+# 13bo34XTW9c8fpESDUXmanKsQF7rNF2uRr
+# 1PxBb9U7F9UssBuW9nWWMxaLAgYdP3zUQ9

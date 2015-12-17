@@ -103,3 +103,64 @@ form > li {
 .ui-sref-active a:active {
     color:#BF2323 !important;
 }
+
+.main-bit{
+  width: 390px;
+  padding-bottom: 7px;
+}
+
+#logo-nav{
+  width: 192px;
+}
+
+.navbar-brand{
+  padding-top: 8px;
+}
+
+#static-index, .profile-background{
+  background-color: rgba(245, 245, 245, 0.75);
+  background-image: image-url("background1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0;
+  height: 538px;
+  /*max-width: 1600px;*/
+  background-position: top right;
+  margin: auto;
+}
+
+
+#static-banner{
+  margin-top: 100px;
+}
+
+.navbar-fixed-top{
+  border-width: 0 0 0px;
+}
+
+.btn-cta.btn-inverted {
+  border: 2px solid #E04A1D;
+  color: #E04A1D;
+  font-size: 30px;
+}
+
+.btn-cta.btn-inverted:hover {
+  background: #E04A1D;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.main-font{
+  font-family: 'Dosis', sans-serif;
+}
+
+.main-button{
+  margin-top: 50px;
+}
+
+.main-responsive{
+  margin-left: 40px;
+}

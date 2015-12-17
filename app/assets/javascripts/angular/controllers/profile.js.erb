@@ -1,5 +1,26 @@
-app.controller('ProfileCtrl', ['$scope', '$auth', '$location',
-  function($scope, $auth, $location){
+app.controller('ProfileCtrl', ['$http', '$scope', '$auth', '$location', '$stateParams',
+  function($http, $scope, $auth, $location, $stateParams){
+    // console.log($stateParams);
 
+    $http({
+      url: 'http://localhost:3000/users/' + $stateParams.identification,
+      method: "GET",
+    }).then(function(response){
+      // console.log(response)
+      $scope.profileUser = response.data;
+      console.log(response.data)
+      $scope.send.user_id = response.data.id;
+    })
+
+    $scope.send = {};
+    $scope.sendBTC = function () {
+      console.log($scope.send);
+      $http.post('http://localhost:3000/wallets/send_money', $scope.send)
+      .then(function(response){
+        console.log(response);
+      }, function(response){
+        console.log(response);
+      })
+    }
 
 }])

@@ -4,22 +4,22 @@
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header center-text">
-     BTC Balance: {{ balance }} {{ addresses }}
+     BTC Balance: {{ balance }} (HKD: {{ balance * 3531.83 }} )
     </h1>
   </div>
 </div>
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" class="active col-sm-4"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab" onclick="return false">Deposit</a></li>
-  <li role="presentation" class="col-sm-4"><a href="#withdraw" aria-controls="withdraw" role="tab" data-toggle="tab" onclick="return false">Withdraw</a></li>
+  <li role="presentation" class="col-sm-4"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab" onclick="return false">Deposit</a></li>
+  <li role="presentation" class="active col-sm-4"><a href="#transfer" aria-controls="transfer" role="tab" data-toggle="tab" onclick="return false">Transfer</a></li>
   <li role="presentation" class="col-sm-4"><a href="#history" aria-controls="history" role="tab" data-toggle="tab" onclick="return false">History</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
   <!-- Deposit Tab -->
-  <div role="tabpanel" class="tab-pane active" id="deposit">
+  <div role="tabpanel" class="tab-pane" id="deposit">
     <div class="panel-body">
       <div class="row">
         <div class="col-lg-12">
@@ -42,8 +42,8 @@
     </div>
   </div>
 
-  <!-- Withdraw Tab -->
-  <div role="tabpanel" class="tab-pane" id="withdraw">
+  <!-- transfer Tab -->
+  <div role="tabpanel" class="tab-pane active" id="transfer">
     <div class="panel-body">
       <div class="row">
         <div class="col-lg-12">
@@ -51,22 +51,22 @@
             <table class="table table-bordered table-hover table-striped">
               <thead>
                 <tr>
-                  <th>Withdraw Address</th>
+                  <th style="width: 398px">Transfee Address</th>
                   <th>Amount</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
-                    <input type="text" ng-model="withdraw.address">
+                    <input type="text" size="30" ng-model="transfer.address">
                   </td>
                   <td>
-                    <input type="number" ng-model="withdraw.amount">
+                    <input type="number" ng-model="transfer.amount">
                   </td>
                 </tr>
               </tbody>
             </table>
-            <button ng-click="withdrawBTC()">Send</button>
+            <button ng-click="transferBTC()">Send</button>
           </div>
         </div>
       </div>
@@ -109,6 +109,3 @@
     </div>
   </div>
 </div>
-
-<main-footer>
-</main-footer>

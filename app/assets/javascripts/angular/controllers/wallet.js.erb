@@ -5,14 +5,22 @@ app.controller('WalletCtrl', ['$http', '$scope', '$auth', '$location',
       .get('http://localhost:3000/wallets/show')
       .then(function(response){
         console.log(response.data);
+        $scope.address = response.data.address;
         $scope.balance = response.data.balance / 100000000;
-        $scope.address = response.data.address
     });
 
-    $scope.withdraw = {};
-    $scope.withdrawBTC = function () {
-      console.log("send btc")
-      console.log($scope.withdraw)
+    $scope.transfer = {};
+    $scope.transferBTC = function () {
+      console.log($scope.transfer);
+      $http.post('http://localhost:3000/wallets/transfer', $scope.transfer)
+      .then(function(response){
+        console.log(response);
+      }, function(response){
+        console.log(response);
+      })
     }
   }
 ])
+
+
+
